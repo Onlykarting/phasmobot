@@ -1,7 +1,6 @@
 import sqlite3 as db
 import telebot as tb
 from telebot import types
-import config
 
 try:
     bot = tb.TeleBot("5371827834:AAFfQDohC2UDvvVo-YWm57XEHxtOOOKa4Eo")
