@@ -58,6 +58,11 @@ def handle_text(message):
                 bot.send_message(message.chat.id,"Признаки:\n"+str(i[3])+"\nОсобенности:\n"+ str(i[2]),reply_markup=markup_top_choose)
     elif message.text == "Информация о локациях":
         bot.send_message(message.chat.id, "Раздел в разработке")
+        maps = base.execute("""SELECT * FROM locations""")
+        for i in maps:
+            photo = open("phasmobotbyromanlabs\\"+str(i[3]),'rb')
+            bot.send_message(message.chat.id, str(i[1]))
+            bot.send_photo(message.chat.id, photo)
     else:
         markup_top_choose = types.ReplyKeyboardMarkup(row_width=1,resize_keyboard=True)
         bt1 = types.KeyboardButton("Информация о призраках")
